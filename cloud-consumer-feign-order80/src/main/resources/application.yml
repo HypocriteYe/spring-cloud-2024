@@ -1,0 +1,67 @@
+server:
+  port: 80
+
+#spring:
+#  ####Spring Cloud Consul for Service Discovery
+#  cloud:
+#    consul:
+#      host: 101.43.18.192
+#      port: 8500
+#      discovery:
+#        service-name: ${spring.application.name}
+#      config:
+#        format: yaml
+
+spring:
+  cloud:
+    openfeign:
+      httpclient:
+        hc5:
+          enabled: true
+      # 开启circuitbreaker和分组激活 spring.cloud.openfeign.circuitbreaker.enabled
+      circuitbreaker:
+        enabled: true
+        group:
+          enabled: true
+      client:
+        config:
+          default:
+            connect-timeout: 3000
+            read-timeout: 3000
+            # 可以同时生效
+#          cloud-consumer-payment:
+#            connect-timeout: 2000
+#            read-timeout: 2000
+#      compression:
+#        request:
+#          enabled: true
+#          min-request-size: 2048 #最小触发压缩的大小
+#          mime-types: text/xml,application/xml,application/json #触发压缩数据类型
+#        response:
+#          enabled: true
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        failure-rate-threshold: 50  # 百分比，调用失败达到一定比例打开断路器
+        sliding-window-type: count_based  # 滑动窗口类型 count_based/time_based
+        sliding-window-size: 6  # 滑动窗口大小配置，count_based时表示6个请求，time_based时表示6秒
+        minimum-number-of-calls: 6  # 断路器计算失败率或慢调用之前需要的最小调用数
+        automatic-transition-from-open-to-half-open-enabled: true # 是否启用自动从开启状态过渡到半开状态
+        wait-duration-in-open-state: 5s # 从OPEN到HALF_OPEN状态需要等待的时间
+        permitted-number-of-calls-in-half-open-state: 2 # 半开状态允许的最大请求数
+        record-exceptions:
+          - java.lang.Exception
+    instances:
+      cloud-consumer-payment:
+        base-config: default
+
+
+#logging:
+#  level:
+#    com:
+#      hg:
+#        cloud:
+#          api:
+#            PayFeignAPI: debug

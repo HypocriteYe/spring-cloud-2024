@@ -1,0 +1,38 @@
+server:
+  port: 8001
+
+# ==========applicationName + druid-mysql8 driver===================
+spring:
+#  application:
+#    name: cloud-payment-service
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.43.18.192:3310/cloud_db2024?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  profiles:
+    active: prod
+
+  ####Spring Cloud Consul for Service Discovery
+#  cloud:
+#    consul:
+#      host: 101.43.18.192
+#      port: 8500
+#      discovery:
+#        service-name: ${spring.application.name}
+#      config:
+#        format: yaml
+
+# 定义时间格式（直接在字段上配置）
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+
+# ========================mybatis===================
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.hg.cloud.entities
+  configuration:
+    map-underscore-to-camel-case: true
