@@ -27,4 +27,24 @@ public class PayCircuitController {
         }
         return "Hello, circuit! inputId:  "+id+" \t " + IdUtil.simpleUUID();
     }
+
+    @GetMapping(value = "/pay/bulkhead/{id}")
+    public String myBulkhead(@PathVariable("id") Integer id) {
+        if (id == -4) {
+            throw new RuntimeException("circuit id 不能为负数");
+        }
+        if (id == 9999) {
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (Exception ignored) {}
+        }
+        return "Hello, bulkhead! inputId:  "+id+" \t " + IdUtil.simpleUUID();
+    }
+
+    //=========Resilience4j ratelimit 的例子
+    @GetMapping(value = "/pay/ratelimit/{id}")
+    public String myRateLimit(@PathVariable("id") Integer id)
+    {
+        return "Hello, myRateLimit欢迎到来 inputId:  "+id+" \t " + IdUtil.simpleUUID();
+    }
 }

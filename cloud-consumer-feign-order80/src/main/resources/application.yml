@@ -21,13 +21,13 @@ spring:
       # 开启circuitbreaker和分组激活 spring.cloud.openfeign.circuitbreaker.enabled
       circuitbreaker:
         enabled: true
-        group:
-          enabled: true
+#        group:
+#          enabled: true
       client:
         config:
           default:
-            connect-timeout: 3000
-            read-timeout: 3000
+            connect-timeout: 10000
+            read-timeout: 10000
             # 可以同时生效
 #          cloud-consumer-payment:
 #            connect-timeout: 2000
@@ -41,21 +41,45 @@ spring:
 #          enabled: true
 
 resilience4j:
-  circuitbreaker:
+  timelimiter:
     configs:
       default:
-        failure-rate-threshold: 50  # 百分比，调用失败达到一定比例打开断路器
-        sliding-window-type: count_based  # 滑动窗口类型 count_based/time_based
-        sliding-window-size: 6  # 滑动窗口大小配置，count_based时表示6个请求，time_based时表示6秒
-        minimum-number-of-calls: 6  # 断路器计算失败率或慢调用之前需要的最小调用数
-        automatic-transition-from-open-to-half-open-enabled: true # 是否启用自动从开启状态过渡到半开状态
-        wait-duration-in-open-state: 5s # 从OPEN到HALF_OPEN状态需要等待的时间
-        permitted-number-of-calls-in-half-open-state: 2 # 半开状态允许的最大请求数
-        record-exceptions:
-          - java.lang.Exception
+        timeout-duration: 20s
+#  circuitbreaker:
+#    configs:
+#      default:
+#        failure-rate-threshold: 50  # 百分比，调用失败达到一定比例打开断路器
+#        sliding-window-type: time_based  # 滑动窗口类型 count_based/time_based
+#        slow-call-duration-threshold: 2s  # 慢调用时间阈值
+#        slow-call-rate-threshold: 30  #慢调用百分比
+#        sliding-window-size: 6  # 滑动窗口大小配置，count_based时表示6个请求，time_based时表示6秒
+#        minimum-number-of-calls: 6  # 断路器计算失败率或慢调用之前需要的最小调用数
+#        automatic-transition-from-open-to-half-open-enabled: true # 是否启用自动从开启状态过渡到半开状态
+#        wait-duration-in-open-state: 5s # 从OPEN到HALF_OPEN状态需要等待的时间
+#        permitted-number-of-calls-in-half-open-state: 2 # 半开状态允许的最大请求数
+#        record-exceptions:
+#          - java.lang.Exception
     instances:
       cloud-consumer-payment:
         base-config: default
+#  bulkhead:
+#    configs:
+#      default:
+#        max-concurrent-calls: 2
+#        max-wait-duration: 1s
+
+#  thread-pool-bulkhead:
+#    configs:
+#      default:
+#        max-thread-pool-size: 1
+#        core-thread-pool-size: 1
+#        queue-capacity: 1
+  ratelimiter:
+    configs:
+      default:
+        limit-refresh-period: 1s
+        limit-for-period: 2
+        timeout-duration: 1s
 
 
 #logging:
@@ -65,3 +89,12 @@ resilience4j:
 #        cloud:
 #          api:
 #            PayFeignAPI: debug
+
+# ========================zipkin===================
+management:
+  zipkin:
+    tracing:
+      endpoint: http://101.43.18.192:9411/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0 #采样率默认为0.1(0.1就是10次只能有一次被记录下来)，值越大收集越及时。
