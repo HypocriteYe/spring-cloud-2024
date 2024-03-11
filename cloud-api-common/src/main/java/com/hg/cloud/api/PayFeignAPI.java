@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @Author ygl
  * @Create 2024/3/7 16:33
  */
-@FeignClient(value = "cloud-payment-service")
+//@FeignClient(value = "cloud-payment-service")
+@FeignClient(value = "cloud-gateway")
 public interface PayFeignAPI {
 
     /**

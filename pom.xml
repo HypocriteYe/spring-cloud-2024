@@ -14,6 +14,10 @@
     <module>cloud-api-common</module>
     <module>cloud-consumer-feign-order80</module>
       <module>cloud-gateway9527</module>
+      <module>cloudalibaba-provider-payment9001</module>
+      <module>cloudalibaba-consumer-order83</module>
+      <module>cloudalibaba-config-nacos3344</module>
+      <module>cloudalibaba-sentinel-service8401</module>
   </modules>
 
   <properties>
