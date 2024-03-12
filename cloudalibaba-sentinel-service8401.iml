@@ -20,13 +20,30 @@
     </content>
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-datasource-nacos:1.8.6" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-datasource-extension:1.8.6" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-core:1.8.6" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-client:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-auth-plugin:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-encryption-plugin:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.16.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.15.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.15.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.16.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_otel:0.16.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_common:0.16.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_otel_agent:0.16.0" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2022.0.0.0-RC2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-transport-simple-http:1.8.6" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-transport-common:1.8.6" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-datasource-extension:1.8.6" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.83_noneautotype" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-annotation-aspectj:1.8.6" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-core:1.8.6" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.20.1" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-circuitbreaker-sentinel:2022.0.0.0-RC2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-reactor-adapter:1.8.6" level="project" />
@@ -47,22 +64,6 @@
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:2022.0.0.0-RC2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2022.0.0.0-RC2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-alibaba-commons:2022.0.0.0-RC2" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-client:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-auth-plugin:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-encryption-plugin:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.16.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.15.3" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.15.3" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.16" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.16" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
-    <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.16.0" level="project" />
-    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_otel:0.16.0" level="project" />
-    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_common:0.16.0" level="project" />
-    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_otel_agent:0.16.0" level="project" />
-    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.spring:spring-context-support:1.0.11" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-commons:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:6.2.0" level="project" />
