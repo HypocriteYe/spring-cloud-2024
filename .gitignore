@@ -1,5 +1,23 @@
 # Project exclude paths
-/cloud-api-common/target/
-/cloud-consumer-feign-order80/target/
-/cloud-consumer-order80/target/
-/cloud-provider-payment8001/target/
+*.iml
+
+# 忽略所有编译生成的文件
+*.class
+*.jar
+*.war
+*.ear
+
+# 忽略所有日志文件
+*.log
+
+# 忽略所有编译生成的目录
+target/
+bin/
+build/
+
+# 忽略配置文件中的敏感信息
+config.ini
+
+# 忽略临时文件
+tmp/
+temp/
